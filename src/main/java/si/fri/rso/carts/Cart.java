@@ -6,7 +6,6 @@ import java.util.List;
 public class Cart {
 
     private String id;
-    //Book ids
     private List<Book> books;
     private String owner;
     private String address;
