@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carts-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: carts-service
+  template:
+    metadata:
+      labels:
+        app: carts-service
+    spec:
+      containers:
+        - image: andrazceh/carts-service:2021-12-29-03-35-53
+          name: carts-service
+          ports:
+            - containerPort: 3002
+              name: server
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /carts/
+              port: server
+            initialDelaySeconds: 20
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /carts/
+              port: server
+            initialDelaySeconds: 20
+            periodSeconds: 3
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: carts-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3002
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: carts-service
+

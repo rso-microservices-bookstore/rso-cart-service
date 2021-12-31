@@ -7,8 +7,6 @@ public class Cart {
 
     private String id;
     private List<Book> books;
-    private String owner;
-    private String address;
 
     public Cart() {
         books = new ArrayList<>();
@@ -22,13 +20,6 @@ public class Cart {
         return books;
     }
 
-    public String getOwner() {
-        return owner;
-    }
-
-    public String getAddress() {
-        return address;
-    }
 
     public void setId(String id) {
         this.id = id;
@@ -38,11 +29,4 @@ public class Cart {
         this.books = books;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 }

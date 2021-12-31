@@ -33,7 +33,8 @@ public class CartResource {
     }
 
     @POST
-    public Response createCart(Cart cart) {
+    public Response createCart() {
+        Cart cart = new Cart();
         int id = Database.addCart(cart);
         return  Response.ok(id).build();
     }
