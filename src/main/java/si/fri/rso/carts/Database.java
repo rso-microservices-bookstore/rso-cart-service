@@ -1,5 +1,7 @@
 package si.fri.rso.carts;
 
+import com.kumuluz.ee.configuration.utils.ConfigurationUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,6 @@ public class Database {
     }
 
     public static int addCart(Cart cart) {
-
         cart.setId(Integer.toString(carts.size()));
         carts.add(cart);
         return carts.size()-1;

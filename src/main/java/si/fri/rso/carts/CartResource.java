@@ -44,7 +44,7 @@ public class CartResource {
     public Response addNewBook(
             @PathParam("cartId") String cartId,
             @PathParam("bookId") String bookId ) {
-
+        System.out.println(cartProperties.getCatalogueUrl());
         Response bookResponse = ClientBuilder.newClient()
                 .target(cartProperties.getCatalogueUrl()).path("books").path(bookId).request().get();
 
@@ -55,7 +55,6 @@ public class CartResource {
             if(Database.addBook(cartId, b))  return Response.ok(b).build();
 
             else return Response.status(Response.Status.NOT_FOUND).build();
-
         }else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

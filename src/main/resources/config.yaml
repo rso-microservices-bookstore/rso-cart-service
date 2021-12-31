@@ -12,4 +12,6 @@ kumuluzee:
       agent: http://35.196.140.237
 
 rest-properties:
-  catalogue-url: http://localhost:3000
+  maintenance-mode: false
+  broken: false
+  catalogue-url: http://localhost:3002

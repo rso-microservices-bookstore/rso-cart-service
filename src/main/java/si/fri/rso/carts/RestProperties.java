@@ -5,9 +5,11 @@ import com.kumuluz.ee.configuration.cdi.ConfigValue;
 
 import javax.enterprise.context.ApplicationScoped;
 
-@ConfigBundle("rest-properties")
 @ApplicationScoped
+@ConfigBundle("rest-properties")
 public class RestProperties {
+    @ConfigValue(watch = true)
+    private Boolean maintenanceMode;
 
     @ConfigValue(watch = true)
     private String catalogueUrl;

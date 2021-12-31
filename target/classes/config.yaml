@@ -7,3 +7,11 @@ kumuluzee:
     base-url: http://localhost:3002
     http:
       port: 3002
+  config:
+    consul:
+      agent: http://35.196.140.237
+
+rest-properties:
+  maintenance-mode: false
+  broken: false
+  catalogue-url: http://localhost:3002
