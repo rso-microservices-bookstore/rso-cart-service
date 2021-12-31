@@ -15,7 +15,7 @@ import java.util.List;
 public class CartResource {
 
     @Inject
-    private CartProperties cartProperties;
+    private RestProperties cartProperties;
 
     @GET
     public Response getAllCarts() {

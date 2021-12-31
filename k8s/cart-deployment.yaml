@@ -13,7 +13,7 @@ spec:
         app: carts-service
     spec:
       containers:
-        - image: andrazceh/carts-service:2021-12-29-03-35-53
+        - image: andrazceh/carts-service:2021-12-31-10-14-37
           name: carts-service
           ports:
             - containerPort: 3002
