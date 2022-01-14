@@ -47,17 +47,17 @@ public class Database {
     public static boolean deleteBook(String customerId, String bookId) {
         int id = Integer.parseInt(bookId);
         Cart cart = getCart(customerId);
-            if (cart.getId().equals(customerId)) {
+            // if (cart.getId().equals(customerId)) {
                 if(cart.getBookByIdIndex(id)!=-1) {
-                    carts.remove(cart.getBookByIdIndex(id));
+                    cart.getBooks().remove(cart.getBookByIdIndex(id));
                     return  true;
                 }
 
                 else {
                     return false;
                 }
-            }
-            return false;
+            // }
+            // return false;
         }
 
 }
