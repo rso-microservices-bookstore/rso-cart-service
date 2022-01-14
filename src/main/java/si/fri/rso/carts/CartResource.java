@@ -32,6 +32,35 @@ public class CartResource {
                 : Response.status(Response.Status.NOT_FOUND).build();
     }
 
+
+    @DELETE
+    @Path("{cartId}")
+    public Response deleteCart(@PathParam("cartId") String cartId) {
+        Cart cart = Database.getCart(cartId);
+
+
+       if( cart != null){
+           Database.deleteCart(cartId);
+           return Response.ok(cart).build();
+       }
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
+
+    @DELETE
+    @Path("{cartId}/{bookId}")
+    public Response deleteCartBook(@PathParam("cartId") String cartId,
+                                   @PathParam("bookId") String bookId) {
+        Cart cart = Database.getCart(cartId);
+        if( cart != null){
+            if (Database.deleteBook(cartId, bookId))
+                return Response.ok(cart).build();
+            else
+                return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
     @POST
     public Response createCart() {
         Cart cart = new Cart();

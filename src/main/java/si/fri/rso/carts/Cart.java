@@ -20,6 +20,15 @@ public class Cart {
         return books;
     }
 
+    public int getBookByIdIndex(int id){
+        int index =0;
+        for ( Book b: books) {
+            if(b.getId() == id)
+                return index;
+            index = index + 1;
+        }
+        return -1;
+    }
 
     public void setId(String id) {
         this.id = id;
